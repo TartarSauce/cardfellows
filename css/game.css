@@ -1,0 +1,17 @@
+body {
+  background-color: #8F6AB2;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
