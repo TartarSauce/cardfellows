@@ -1,7 +1,15 @@
+
 body {
   background-color: #8F6AB2;
 }
 
 a {
   text-decoration: none;
+}
+
+h1 {
+  background-color: violet;
+  color:yellow;
+  font-family: 'Teko', sans-serif;
+
 }
