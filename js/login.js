@@ -12,26 +12,12 @@ function Player(name, time){
   console.log(this);
 };
 
-// if input using instance of object, rankingOrder work
-// if input using eventListener or localStorage, rankingOrder won't work
-
+var sample1 = new Player('Bob', 3);
 var sample2 = new Player('AAA', 4);
 var sample3 = new Player('BBB', 5);
-var sample1 = new Player('Bob', 3);
-// var sample4 = new Player('CCC', 6);
-
+//compare score and push to rankPlayer
 function rankingOrder() {
-  rankPlayer = [];
-  var rank = 1;
-  for (var time = 0; time < 61 && rankPlayer.length < allPlayer.length; time++) {
-    for (var i = 0; i < allPlayer.length; i ++) {
-      if (allPlayer[i].score === time) {
-        allPlayer[i].ranking = rank++;
-        rankPlayer.push(allPlayer[i]);
-      }
-    }
-  }
-  console.log(allPlayer);
+  rankPlayer = allPlayer.sort(function(a,b) {return (a.score > b.score) ? 1 : ((b.score > a.score) ? -1 : 0);} );
   console.log(rankPlayer);
 }
 
@@ -84,11 +70,17 @@ function handlePlayerLogin(event) {
   event.preventDefault(); //prevents page reload
   var hName = event.target.username.value;
   var hScore = event.target.userscore.value;
-
+  for(var i = 0; i < allPlayer.length; i++) {
+    if (hName === allPlayer[i].name){
+      event.target.username.value = null;
+      event.target.userscore.value = null;
+      return document.getElementById('duplicate').innerHTML = 'The name already exists, Please re-enter new name';
+    }
+  }
   var newPlayer = new Player(hName, hScore);
-  console.log(newPlayer);
+  console.log(allPlayer);
   outputTable();
-  localStorage.setItem('allData', JSON.stringify(allPlayer)); //rankPlayer
+  localStorage.setItem('allData', JSON.stringify(rankPlayer));
 
   event.target.username.value = null;
   event.target.userscore.value = null;
