@@ -1,19 +1,32 @@
+<!DOCTYPE html>
 <html>
-<head>
-  <title>CardFellows Login</title>
-</head>
 
-<link href="../css/login.css" rel="stylesheet" type="text/css">
-<link href='https://fonts.googleapis.com/css?family=Orbitron|Russo+One|Joti+One|Wallpoet|Press+Start+2P|Luckiest+Guy|Black+Ops+One|Rye' rel='stylesheet' type='text/css'>
-<body>
-  <h1>LOGIN</h1>
-  <p>NAME:</p>
-  <button id="to-game"><a href="game.html">ENTER</a></button>
+  <head>
+    <title>CardFellows Login</title>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron|Russo+One|Joti+One|Wallpoet|Press+Start+2P|Luckiest+Guy|Black+Ops+One|Rye' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="..\css\login.css" />
+  </head>
 
-  <table id="score-table">
+  <body>
+    <h1>***Please enter your name***</h1>
+      <form id="login">
+        <fieldset>
+          <legend>Login Form</legend>
 
+          <label for="name">Name: </label>
+          <input id="username" name="name" type="text" required/>
 
-  </table>
+          <label for="score">Score: </label>
+          <input name="userscore" type="number" required/><br>
+          <p id="duplicate"></p>
+          <button id="to-game" type="submit"><a href="game.html">ENTER</a></button>
 
-  </html>
-</body>
+        </fieldset>
+      </form>
+
+    <h1>High Score</h1>
+    <table id="score-table"></table>
+
+    <script src="..\js\login.js"></script>
+  </body>
+</html>
