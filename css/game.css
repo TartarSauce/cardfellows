@@ -1,11 +1,7 @@
 body {
   background-color: #8F6AB2;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-
+  border:2px solid #cccccc;
+  padding:20px;
 }
 
 a {
@@ -14,4 +10,148 @@ a {
 
 a:visited {
   color: inherit;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+
+}
+.instructions {
+  text-align: center;
+  width:50%;
+  margin: 0px auto;
+}
+
+.startbutton {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+.startgame {
+  margin:20px auto 20px auto;
+  display: inline-block;
+}
+
+.row1, .row2, .row3 {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+.gameboard {
+  /*background: url("spritesheet.png");*/
+  background: url("../imgs/sprites.png");
+  display: inline-block;
+  height: 750px;
+  width:900px;
+}
+
+.img1 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
+}
+
+.img2 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
+}
+
+.img3 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
+}
+
+.img4 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
+}
+
+.img5 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
+}
+
+.img6 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
+}
+
+.img7 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
+}
+
+.img8 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
+}
+
+.img9 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
+}
+
+.img10 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
+}
+
+.img11 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
+}
+
+.img12 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
+}
+
+.img13 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
+}
+
+.img14 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
+}
+
+.img15 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
+}
+
+.img16 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
+}
+
+.img17 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
+}
+
+.img18 {
+  width: 150px; /* Icon width */
+  height: 150px; /* Icon height */
+  display: inline-block; /* Display icon as inline block */
 }
