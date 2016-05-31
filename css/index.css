@@ -1,0 +1,38 @@
+body {
+  background-color: #8F6AB2;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-family: 'Press Start 2P';
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.inner-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 70px;
+  color: white;
+}
+
+.inner-play {
+  margin: auto;
+  width: 45%;
+  font-size: 85px;
+  color: #F6F422;
+
+}
