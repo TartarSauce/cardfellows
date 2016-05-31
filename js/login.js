@@ -77,6 +77,8 @@ function handlePlayerLogin(event) {
       return document.getElementById('duplicate').innerHTML = 'The name already exists, Please re-enter new name';
     }
   }
+  document.getElementById('duplicate').innerHTML = '';
+
   var newPlayer = new Player(hName, hScore);
   console.log(allPlayer);
   outputTable();
