@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="login.css" />
+  </head>
+
+  <body>
+    <h1>***Please enter your name***</h1>
+      <form id="login">
+        <fieldset>
+          <legend>Login Form</legend>
+
+          <label for="name">Name: </label>
+          <input id="username" name="name" type="text" required/>
+
+          <label for="score">Score: </label>
+          <input name="userscore" type="number" required/>
+
+          <button type="submit">Log in</button>
+
+        </fieldset>
+      </form>
+
+    <h1>High Score</h1>
+    <table id="score-table"></table>
+
+    <script src="login.js"></script>
+  </body>
+</html>
