@@ -1,5 +1,6 @@
 body {
-  background-color: #8F6AB2;
+  /*background-color: #8F6AB2;*/
+  background-color: black;
 }
 
 a {
@@ -10,11 +11,14 @@ a:visited {
   color: inherit;
 }
 
-nav {
+nav, .logoutgame {
   display: flex;
   justify-content: space-between;
-
+  color: #F6F422;
+  font-family: 'Press Start 2P';
+  border-radius: 1px;
 }
+
 .instructions {
   text-align: center;
   width:90%;

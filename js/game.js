@@ -2,6 +2,7 @@
 // handle to DOM elements
 var startButtonElement = document.getElementById('startgame');
 var gameTimerElement = document.getElementById('gametimer');
+var logOutButtonElement = document.getElementById('logoutgame');
 
 // all constants at global scope
 var CARDHEIGHT = 150;
@@ -207,8 +208,18 @@ function startGame() {
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++
+// event handler for log out button
+//+++++++++++++++++++++++++++++++++++++++++++++
+function logOutGame() {
+  console.log('Logging user out');
+  var activeUser = false;
+  localStorage.setItem('activeUser', JSON.stringify(activeUser));
+}
+
+//+++++++++++++++++++++++++++++++++++++++++++++
 // MAIN CODE EXECUTION
 //+++++++++++++++++++++++++++++++++++++++++++++
 deck = [];
 createDeck();
 startButtonElement.addEventListener('click', startGame);
+logOutButtonElement.addEventListener('click', logOutGame);
