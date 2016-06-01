@@ -3,7 +3,7 @@ pressStart.addEventListener('click', checkActiveUser);
 
 
 function checkActiveUser() {
-  var activeUser = JSON.parse(localStorage.get('activeUser'));
+  var activeUser = JSON.parse(localStorage.getItem('activeUser'));
   if (activeUser){
     window.location.assign('html/game.html');
   } else {
