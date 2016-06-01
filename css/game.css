@@ -1,7 +1,5 @@
 body {
   background-color: #8F6AB2;
-  border:2px solid #cccccc;
-  padding:20px;
 }
 
 a {
@@ -19,19 +17,39 @@ nav {
 }
 .instructions {
   text-align: center;
-  width:50%;
+  width:90%;
   margin: 0px auto;
+  margin-top:20px;
+  font-family: 'Press Start 2P';
+  font-size:14px;
+  line-height: 200%;
+  color:white;
 }
 
-.startbutton {
+.gamearea {
+  width:30%;
   display: flex;
-  justify-content:center;
+  justify-content:space-around;
   align-items: center;
+  margin:0px auto;
+  padding:10px;
+}
+
+.gametimer {
+  display: inline-block;
+  padding:10px;
+  font-family: 'Press Start 2P';
+  font-size:16px;
+  background-color:white;
+  color:black;
 }
 
 .startgame {
-  margin:20px auto 20px auto;
   display: inline-block;
+  font-family: 'Press Start 2P';
+  color:black;
+  font-size:16px;
+  padding:10px;
 }
 
 .row1, .row2, .row3 {
