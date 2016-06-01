@@ -1,3 +1,4 @@
+/*Corey Top*/
 body {
   background-color: #8F6AB2;
   border:2px solid #cccccc;
@@ -155,3 +156,5 @@ nav {
   height: 150px; /* Icon height */
   display: inline-block; /* Display icon as inline block */
 }
+
+/*Corey Bottom*/
