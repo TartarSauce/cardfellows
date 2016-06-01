@@ -2,11 +2,7 @@
 body {
   background-color: #8F6AB2;
   margin-top: 20px;
-  padding: 50px 50px 50px 50px;
-}
-
-a {
-  text-decoration: none;
+  border-spacing: : : 50px 250px 50px 250px;
 }
 
 h1 {
@@ -26,9 +22,17 @@ h2 {
   color: ;
 }
 
+.container-uma {
+  font-family: 'Quattrocento', serif;
+  background: #273F4A no-repeat;
+  background-size: cover;
+  padding: 50px;
+}
+
 .header-uma {
   display: flex;
   justify-content: center;
+  padding-left: 30%;
 
 }
 
@@ -37,12 +41,18 @@ h2 {
   color: ;
   display: flex;
   justify-content: flex-end;
+  padding-left: 50%;
+}
+
+.uma-par {
+  padding-right: 5%;
 
 }
 
 .header-jennifer {
   display: flex;
   justify-content: center;
+  padding-right: 30%;
 }
 
 .second {
@@ -50,11 +60,17 @@ h2 {
   color:  ;
   display: flex;
   justify-content: flex-start;
+  padding-right: 50%;
+}
+
+.jennifer-par {
+  padding-left: 5%;
 }
 
 .header-corey {
   display: flex;
   justify-content: center;
+  padding-left: 30%;
 }
 
 .third {
@@ -62,11 +78,17 @@ h2 {
   color: ;
   display: flex;
   justify-content: flex-end;
+  padding-left: 50%;
+}
+
+.corey-par {
+  padding-right: 5%;
 }
 
 .header-bob {
   display: flex;
   justify-content: center;
+  padding-right: 30%;
 }
 
 .fourth {
@@ -74,6 +96,11 @@ h2 {
   color: ;
   display: flex;
   justify-content: flex-start;
+  padding-right:50%;
+}
+
+.bob-par {
+  padding-left: 5%;
 }
 
 .header-thanks {
