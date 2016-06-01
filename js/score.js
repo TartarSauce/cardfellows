@@ -1,8 +1,7 @@
 
 var allPlayer = [];
 var rankPlayer = [];
-var scoreTable = document.getElementById('score-table');
-var loginForm = document.getElementById('login');
+var highScoreTable = document.getElementById('high-scores');
 
 function Player(name, time){
   this.name = name;
@@ -12,13 +11,10 @@ function Player(name, time){
   console.log(this);
 };
 
-var sample1 = new Player('Bob', 3);
-var sample2 = new Player('AAA', 4);
-var sample3 = new Player('BBB', 5);
 //compare score and push to rankPlayer
 function rankingOrder() {
   rankPlayer = allPlayer.sort(function(a,b) {return (a.score > b.score) ? 1 : ((b.score > a.score) ? -1 : 0);} );
-  console.log(rankPlayer);
+  console.log('rankPlayer = ' + rankPlayer);
 }
 
 function headerRow() {
@@ -36,59 +32,60 @@ function headerRow() {
   scoreCell.textContent = 'Score';
   trElement.appendChild(scoreCell);
 
-  scoreTable.appendChild(trElement);
+  highScoreTable.appendChild(trElement);
 }
-// using rankPlayer.length or set a number of top 10-20??? //rankPlayer.length
+// using rankPlayer.length or max of 10
 function renderTable() {
-  for(var i = 0; i < 3 ; i++) {
+  for(var i = 0; i < rankPlayer.length ; i++) {
     var trElement = document.createElement('tr');
     var thRanking = document.createElement('th');
     thRanking.textContent = i + 1; //rankPlayer[i].ranking
     trElement.appendChild(thRanking);
-
     var tdName = document.createElement('td');
     tdName.textContent = rankPlayer[i].name;
     trElement.appendChild(tdName);
-
     var tdScore = document.createElement('td');
     tdScore.textContent = rankPlayer[i].score;
     trElement.appendChild(tdScore);
-
-    scoreTable.appendChild(trElement);
+    highScoreTable.appendChild(trElement);
+    if (i === 9) {
+      break;
+    }
   }
 }
 
 function outputTable() {
-  // scoreTable.innerHTML = '';
+  // highScoreTable.innerHTML = '';
   rankingOrder();
   headerRow();
   renderTable();
 }
 
-function handlePlayerLogin(event) {
-  console.log(event);
-  event.preventDefault(); //prevents page reload
-  var hName = event.target.username.value;
-  var hScore = event.target.userscore.value;//for testing purpose
-  var activeUser = true;
-
-  localStorage.setItem('activeUser', JSON.stringify(activeUser));
-  localStorage.setItem('name', JSON.stringify(hName));
-  localStorage.setItem('score', JSON.stringify(hScore));// for testing purpose
-  localStorage.setItem('allData', JSON.stringify(rankPlayer));
-  location.assign('game.html');
-}
-
-loginForm.addEventListener('submit', handlePlayerLogin);
-
 (function(){
-  if(localStorage.allData) {
+  if(localStorage.score) {
+    var userName = JSON.parse(localStorage.getItem('name'));
+    var newScore = JSON.parse(localStorage.getItem('score'));
     var lsData = JSON.parse(localStorage.getItem('allData'));
+    var returnUser = false;
     for (var i = 0; i < lsData.length; i++) {
       allPlayer[i] = lsData[i];
+      if (userName === allPlayer[i].name){
+        var oldScore = allPlayer[i].score;
+        returnUser = true;
+        if (newScore < oldScore){
+          allPlayer[i].score = newScore;
+        }
+        console.log( userName + ', Welcome Back! yours highest score = ' + allPlayer[i].score);
+      }
     }
-    outputTable();
-  } else {
-    outputTable();
+    console.log('userName = ' + userName + '; newScore = ' + newScore);
+    console.log(allPlayer);
+    if (newScore === '-1' || returnUser) {
+      outputTable();
+    } else {
+      var newPlayer = new Player(userName, newScore);
+      outputTable();
+    }
+    localStorage.setItem('allData', JSON.stringify(rankPlayer));
   }
 })();
