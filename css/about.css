@@ -1,6 +1,8 @@
 
 body {
   background-color: #8F6AB2;
+  margin-top: 20px;
+  padding: 50px 50px 50px 50px;
 }
 
 a {
@@ -8,8 +10,83 @@ a {
 }
 
 h1 {
-  background-color: violet;
+  background-color: #8F6AB2;
   color:yellow;
   font-family: 'Teko', sans-serif;
 
+}
+
+h2 {
+  background-color: #8F6AB2;
+  color:yellow;
+  font-family: ;
+}
+.about-us-heading {
+  background-color: ;
+  color: ;
+}
+
+.header-uma {
+  display: flex;
+  justify-content: center;
+
+}
+
+.first {
+  background-color: ;
+  color: ;
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.header-jennifer {
+  display: flex;
+  justify-content: center;
+}
+
+.second {
+  background-color: ;
+  color:  ;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header-corey {
+  display: flex;
+  justify-content: center;
+}
+
+.third {
+  background-color: ;
+  color: ;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header-bob {
+  display: flex;
+  justify-content: center;
+}
+
+.fourth {
+  background-color: ;
+  color: ;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header-thanks {
+  display: flex;
+  justify-content: center;
+}
+
+.special-thanks {
+  background-color: ;
+  color: ;
+}
+
+.image-center {
+  display: flex;
+  justify-content: center;
 }
