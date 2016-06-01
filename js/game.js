@@ -1,3 +1,4 @@
+
 // handle to DOM elements
 var startButtonElement = document.getElementById('startgame');
 var gameTimerElement = document.getElementById('gametimer');
@@ -80,6 +81,11 @@ function setGameBoard() {
     gameBoard.push(deck[i]);
     if (deck[i].isStaff) {staffCount++;}
   }
+
+  if (document.getElementById('gameoveralert')) {
+    var gameAreaEl = document.getElementById('gamearea');
+    gameAreaEl.removeChild(document.getElementById('gameoveralert'));
+  }
   // get name from LocalStorage
   window.setTimeout(flipCard, 2000);
   startTime = new Date();
@@ -98,9 +104,8 @@ function logClick() {
     element.removeEventListener('click', logClick);
     staffCount--;
     if (staffCount === 0) {
-      alert('CONGRATULATIONS, YOU GIT SUCCESS!');
-      // location.assign('score.html');
       gameOver = true;
+      gameOverAlert();
       reportTime();
       totalSeconds = 0;
       // write score to localstorage
@@ -108,7 +113,7 @@ function logClick() {
   } else {
     element.style.backgroundPosition = gameBoard[index].position;
     element.removeEventListener('click', logClick);
-    alert('GAME OVER!');
+    gameOverAlert();
     for (var i = 0; i < GAMEBOARDAREA; i++) {
       document.getElementById('img' + (i + 1)).style.backgroundPosition = gameBoard[i].position;
     };
@@ -116,6 +121,22 @@ function logClick() {
     gameOver = true;
     totalSeconds = 0;
   }
+}
+
+function gameOverAlert() {
+  var alertDiv = document.createElement('div');
+  alertDiv.id = 'gameoveralert';
+  alertDiv.style.display = 'inline-block';
+  alertDiv.style.padding = '10px';
+  alertDiv.style.backgroundColor = 'white';
+  alertDiv.style.fontFamily = 'Press Start 2P';
+  alertDiv.style.fontSize = '16px';
+  alertDiv.style.backgroundColor = 'white';
+  alertDiv.style.color = 'red';
+  console.log(alertDiv);
+  var gameAreaEl = document.getElementById('gamearea');
+  gameAreaEl.appendChild(alertDiv);
+  alertDiv.innerHTML = 'GAME OVER';
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++
