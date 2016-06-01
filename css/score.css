@@ -1,20 +1,48 @@
-/*Corey Top*/
 body {
-  background-color: #8F6AB2;
+  background-color: black;
   font-family: 'Press Start 2P', cursive;
-}
 
+}
+h1 {
+  color: #F6F422;
+  text-align: center;;
+}
 nav {
   display: flex;
   justify-content: space-between;
-  color: white;
+  color: #F6F422;
+  font-family: 'Press Start 2P';
+  border-radius: 1px;
 }
 
 a {
   text-decoration: none;
+  color: #F6F422;
 }
 
 a:visited {
   color: inherit;
 }
-/*Corey Bottom*/
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 0px auto;
+}
+
+td, th  {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
+    font-weight: bold;
+
+}
+
+td {
+  background-color: #eeeeee;
+}
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #8F6AB2;
+}
