@@ -17,10 +17,13 @@ nav {
   color: white;
   font-family: "Press Start 2P";
   border-radius: 1px;
+
 }
 
 a:visited {
   color: #F6F422;
+  line-height: 200%;
+
 }
 
 a {
@@ -47,8 +50,7 @@ h2 {
 }
 
 .about-us-heading {
-  display: flex;
-  justify-content: center;
+
 }
 
 .person-description {
@@ -193,174 +195,3 @@ h2 {
   padding: 20px;
   border-radius: 5px;
 }
-
-/*body {
-  margin: 0;
-}
-
-.intro {
-  background: url(imgs/munir.jpg) no-repeat center center fixed;
-  display: flex;
-  background-size: cover;
-  padding: 50px 0 100px;
-  overflow: hidden;
-  height: 500px;
-  color: #0F22A3;
-  font-weight: bold;
-  font-family: 'Roboto Slab', serif;
-  display: flex;
-  align-items: center;
-}
-
-.dropdown {
-    position: fixed;
-    right: 50px;
-    top: 20px;
-    text-align: right;
-    font-family: 'Oswald', sans-serif;
-}
-
-.drop-down-icon {
-  right: 0px;
-  height: 40px;
-  width: 40px;
-  border: 1px solid;
-  background: white;
-  border-radius: 10px;
-}
-
-.dropdown ul {
-  display: none;
-  margin: 0;
-list-style: none;
-}
-
-.dropdown:hover ul {
-display: list-item;
-}
-
-.dropdown:hover .drop-down-icon {
-  background-color: #ABA9A7;
-}
-
-.dropdown li {
-  background-color: white;
-  text-align: center;
-  padding: 5px;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
-.dropdown li:hover {
-  background-color: #ABA9A7;
-}
-
-.about-us-heading {
-  border-top: solid 10px;
-  border-bottom: solid 10px;
-  font-size: 75px;
-  margin-left: 50px;
-  margin-right: 10px;
-}
-
-.about-us-description {
-  width: 750px;
-  margin-left: 10px;
-  margin-right: 50px;
-}
-
-.image {
-  width: 400px;
-  height: 400px;
-}
-
-.image-right {
-    width: 400px;
-    height: 400px;
-    margin-left: 100px;
-}
-
-.image-left {
-    width: 400px;
-    height: 400px;
-    margin-right: 100px;
-}
-
-.container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.first {
-  font-family: 'Quattrocento', serif;
-  background: #273F4A no-repeat;
-  background-size: cover;
-  padding: 50px;
-}
-
-.first h1 {
-  color: #D16F19;
-  font-size: 40px;
-}
-
-.first p {
-  color: white;
-}
-
-.second {
-  background: url('Img/scissor.jpg') no-repeat center center fixed;
-  color: white;
-  background-size: cover;
-  padding: 50px 0 100px;
-  overflow: hidden;
-  padding: 50px;
-  font-family: 'Jura', sans-serif;
-}
-
-.second h1 {
-  text-align: right;
-  font-size: 50px;
-}
-
-.third {
-  font-family: 'Muli', sans-serif;
-  background: #DBDAE0 no-repeat;
-  background-size: cover;
-  padding: 50px;
-  padding: 50px;
-}
-
-.third h1 {
-  font-size: 50px;
-    color: #8F1313;
-}
-
-.third p {
-  color: #68676B;
-}
-
-.fourth {
-  background: url('Img/levitating-rock.jpg') center center fixed;
-  background-size: cover;
-  padding: 50px 0 100px;
-  overflow: hidden;
-  color: white;
-  padding: 50px;
-  font-weight: bold;
-  font-family: 'Jura', sans-serif;
-
-}
-
-.fourth h1 {
-  font-size: 50px;
-}
-.fourth p {
-  font-size: 20px;
-}
-
-p {
-  margin-top: 0;
-}*/
