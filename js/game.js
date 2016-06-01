@@ -88,7 +88,7 @@ function setGameBoard() {
     gameAreaEl.removeChild(document.getElementById('gameoveralert'));
   }
   // get name from LocalStorage
-  window.setTimeout(flipCard, 2000);
+  window.setTimeout(flipCard, 5000);
   startTime = new Date();
   showClock();
 }
