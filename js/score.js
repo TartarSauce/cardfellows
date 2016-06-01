@@ -64,19 +64,28 @@ function outputTable() {
 (function(){
   if(localStorage.score) {
     var userName = JSON.parse(localStorage.getItem('name'));
-    var userScore = JSON.parse(localStorage.getItem('score'));
+    var newScore = JSON.parse(localStorage.getItem('score'));
     var lsData = JSON.parse(localStorage.getItem('allData'));
+    var returnUser = false;
     for (var i = 0; i < lsData.length; i++) {
       allPlayer[i] = lsData[i];
+      if (userName === allPlayer[i].name){
+        var oldScore = allPlayer[i].score;
+        returnUser = true;
+        if (newScore < oldScore){
+          allPlayer[i].score = newScore;
+        }
+        console.log( userName + ', Welcome Back! yours highest score = ' + allPlayer[i].score);
+      }
     }
-    console.log('userName = ' + userName + '; userScore = ' + userScore);
+    console.log('userName = ' + userName + '; newScore = ' + newScore);
     console.log(allPlayer);
-    if (userScore === '-1') {
+    if (newScore === '-1' || returnUser) {
       outputTable();
     } else {
-      var newPlayer = new Player(userName, userScore);
+      var newPlayer = new Player(userName, newScore);
       outputTable();
-      localStorage.setItem('allData', JSON.stringify(rankPlayer));
     }
+    localStorage.setItem('allData', JSON.stringify(rankPlayer));
   }
 })();

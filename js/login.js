@@ -71,17 +71,8 @@ function handlePlayerLogin(event) {
   var hName = event.target.username.value;
   var hScore = event.target.userscore.value;//for testing purpose
   var activeUser = true;
-  var tempScore = 0;
-  for(var i = 0; i < allPlayer.length; i++) {
-    if (hName === allPlayer[i].name){
-      tempScore = allPlayer[i].score;
-      // event.target.username.value = null;
-      // event.target.userscore.value = null;
-      // return document.getElementById('duplicate').innerHTML = 'The name already exists! Please re-enter new name';
-    }
-  }
+
   localStorage.setItem('activeUser', JSON.stringify(activeUser));
-  localStorage.setItem('tempScore', JSON.stringify(tempScore));
   localStorage.setItem('name', JSON.stringify(hName));
   localStorage.setItem('score', JSON.stringify(hScore));// for testing purpose
   localStorage.setItem('allData', JSON.stringify(rankPlayer));
