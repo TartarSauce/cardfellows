@@ -6,7 +6,9 @@ body {
 nav {
   display: flex;
   justify-content: space-between;
-  color: white;
+  color: #F6F422;
+  font-family: 'Press Start 2P';
+  border-radius: 1px;
 }
 
 a {

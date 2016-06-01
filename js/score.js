@@ -34,23 +34,23 @@ function headerRow() {
 
   highScoreTable.appendChild(trElement);
 }
-// using rankPlayer.length or set a number of top 10-20???
+// using rankPlayer.length or max of 10
 function renderTable() {
-  for(var i = 0; i < rankPlayer.length; i++) {
+  for(var i = 0; i < rankPlayer.length ; i++) {
     var trElement = document.createElement('tr');
     var thRanking = document.createElement('th');
     thRanking.textContent = i + 1; //rankPlayer[i].ranking
     trElement.appendChild(thRanking);
-
     var tdName = document.createElement('td');
     tdName.textContent = rankPlayer[i].name;
     trElement.appendChild(tdName);
-
     var tdScore = document.createElement('td');
     tdScore.textContent = rankPlayer[i].score;
     trElement.appendChild(tdScore);
-
     highScoreTable.appendChild(trElement);
+    if (i === 9) {
+      break;
+    }
   }
 }
 
