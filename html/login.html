@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <!--Corey Top-->
 <html>
-
   <head>
     <title>CardFellows Login</title>
     <link href='https://fonts.googleapis.com/css?family=Orbitron|Russo+One|Joti+One|Wallpoet|Press+Start+2P|Luckiest+Guy|Black+Ops+One|Rye' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="..\css\login.css" />
   </head>
-
+  <nav>
+      <a href="../index.html">Home</a>
+      <a href="../html/about.html">About</a>
+  </nav>
   <body>
-    <h1>***Please enter your name***</h1>
+    <div class="inputblock">
+      <h4>Please type your user name</h4>
       <form id="login">
-        <fieldset>
-          <legend>Login Form</legend>
-
-          <label for="name">Name: </label>
-          <input id="username" name="name" type="text" required/>
-
-          <label for="score">Score: </label>
-          <input name="userscore" type="number" required/><br>
-          <p id="duplicate"></p>
-          <button id="to-game" type="submit"><a href="game.html">ENTER</a></button>
-
-        </fieldset>
+        <ul class="formlists">
+          <li>
+            <input class="username" name="username" type="text" placeholder="Name"/>
+          </li>
+          <li>
+            <input name="userscore" type="text" placeholder="Score"/>
+          </li>
+          <li>
+            <button id="to-game" type ="submit">ENTER</button>
+          </li>
+        </ul>
       </form>
+    </div>
 
     <h1>High Score</h1>
     <table id="score-table"></table>
