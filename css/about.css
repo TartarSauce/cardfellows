@@ -1,0 +1,197 @@
+*{
+  /*border:1px solid silver;*/
+}
+
+body {
+  background-color: black;
+  /*margin-top: 20px;*/
+  border-spacing: : : 50px 50px 50px 50px;
+  line-height: 200%;
+  font-size: 14px;
+
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-family: "Press Start 2P";
+  border-radius: 1px;
+
+}
+
+a:visited {
+  color: #F6F422;
+  line-height: 200%;
+
+}
+
+a {
+  text-decoration: none;
+  color:#F6F422;
+}
+
+h1 {
+
+  color:yellow;
+  font-family: "Press Start 2P";
+
+}
+
+h2 {
+
+  color:yellow;
+  font-family: "Press Start 2P";
+}
+
+.team-images {
+  /*border: 1px solid black;*/
+  box-shadow: 5px 8px 5px #555555;
+}
+
+.about-us-heading {
+
+}
+
+.person-description {
+  background-color: black;
+  box-shadow: 5px 8px 5px #555555;
+  padding: 10px;
+  width: 90%;
+}
+
+.container-uma {
+  background:
+  background-size: cover;
+  padding: 10px 50px 50px 50px;
+}
+
+.card-team {
+  background-color: #cccccc;
+  box-shadow: 5px 8px 5px #eeeeee;
+  padding: 20px;
+  border-radius: 5px;
+
+}
+
+.card-staff {
+  background-color: #cccccc;
+  box-shadow: 5px 8px 5px #eeeeee;
+  padding: 20px;
+  border-radius: 5px;
+  width: 90%;
+  margin: 0px auto;
+
+}
+
+.header-uma {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+.first {
+  background-color: ;
+  display: flex;
+  justify-content: flex-end;
+  box-shadow: 5px 8px 5px #555555;
+
+
+}
+
+.uma-par {
+  padding-right: 5%;
+  color: white;
+  font-family: "Press Start 2P";
+}
+
+.container-jennifer {
+  background:
+  background-size: cover;
+  padding: 50px;
+}
+
+.header-jennifer {
+  display: flex;
+  justify-content: flex-end;
+  /*padding-right: 10%;*/
+}
+
+.second {
+  background-color: ;
+  display: flex;
+  justify-content: flex-end;
+  box-shadow: 5px 8px 5px #555555;
+}
+
+.jennifer-par {
+  padding-left: 5%;
+  color: white;
+  font-family: "Press Start 2P";
+}
+
+.container-corey {
+  background:
+  background-size: cover;
+  padding: 50px;
+}
+
+.header-corey {
+  display: flex;
+  justify-content: flex-start;
+  /*padding-left: 30%;*/
+}
+
+.third {
+  background-color: ;
+  display: flex;
+  justify-content: flex-end;
+  box-shadow: 5px 8px 5px #555555;
+}
+
+.corey-par {
+  padding-right: 5%;
+  color: white;
+  font-family: "Press Start 2P";
+}
+
+.header-bob {
+  display: flex;
+  justify-content: flex-end;
+  /*padding-right: 10%;*/
+}
+
+.fourth {
+  background-color: ;
+  display: flex;
+  justify-content: flex-end;
+  box-shadow: 5px 8px 5px #555555;
+}
+
+.bob-par {
+  padding-left: 5%;
+  color: white;
+  font-family: "Press Start 2P";
+}
+
+.header-thanks {
+  display: flex;
+  justify-content: center;
+}
+
+.special-thanks {
+  background-color: black;
+  color: white;
+  font-family: "Press Start 2P";
+  padding: 10px;
+  box-shadow: 5px 8px 5px #555555;
+}
+
+.image-center {
+  display: flex;
+  justify-content: center;
+  background-color: #cccccc;
+  box-shadow: 5px 8px 5px #555555;
+  padding: 20px;
+  border-radius: 5px;
+}
