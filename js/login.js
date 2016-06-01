@@ -7,7 +7,7 @@ var loginForm = document.getElementById('login');
 function Player(name, time){
   this.name = name;
   this.score = time;
-  this.ranking = 0;
+  // this.ranking = 0;
   allPlayer.push(this);
   console.log(this);
 };
@@ -38,9 +38,9 @@ function headerRow() {
 
   scoreTable.appendChild(trElement);
 }
-// using rankPlayer.length or set a number of top 10-20???
+// using rankPlayer.length or set a number of top 10-20??? //rankPlayer.length
 function renderTable() {
-  for(var i = 0; i < rankPlayer.length; i++) {
+  for(var i = 0; i < 3 ; i++) {
     var trElement = document.createElement('tr');
     var thRanking = document.createElement('th');
     thRanking.textContent = i + 1; //rankPlayer[i].ranking
@@ -59,7 +59,7 @@ function renderTable() {
 }
 
 function outputTable() {
-  scoreTable.innerHTML = '';
+  // scoreTable.innerHTML = '';
   rankingOrder();
   headerRow();
   renderTable();
@@ -69,25 +69,25 @@ function handlePlayerLogin(event) {
   console.log(event);
   event.preventDefault(); //prevents page reload
   var hName = event.target.username.value;
-  var hScore = event.target.userscore.value;
+  var hScore = event.target.userscore.value;//for testing purpose
   for(var i = 0; i < allPlayer.length; i++) {
     if (hName === allPlayer[i].name){
       event.target.username.value = null;
       event.target.userscore.value = null;
-      return document.getElementById('duplicate').innerHTML = 'The name already exists, Please re-enter new name';
+      return document.getElementById('duplicate').innerHTML = 'The name already exists! Please re-enter new name';
     }
   }
-  document.getElementById('duplicate').innerHTML = '';
-
-  var newPlayer = new Player(hName, hScore);
-  console.log(allPlayer);
-  outputTable();
+  // document.getElementById('duplicate').innerHTML = '';
+  // var newPlayer = new Player(hName, hScore);
+  // console.log(allPlayer);
+  // outputTable();
   localStorage.setItem('name', JSON.stringify(hName));
+  localStorage.setItem('score', JSON.stringify(hScore));// for testing purpose
   localStorage.setItem('allData', JSON.stringify(rankPlayer));
 
-  event.target.username.value = null;
-  event.target.userscore.value = null;
-  console.log('You just cleared all the fields!');
+  // event.target.username.value = null;
+  // event.target.userscore.value = null;
+  // console.log('You just cleared all the fields!');
   location.assign('game.html');
 }
 
