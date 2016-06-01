@@ -1,5 +1,6 @@
 // handle to DOM elements
 var startButtonElement = document.getElementById('startgame');
+var gameTimerElement = document.getElementById('gametimer');
 
 // all constants at global scope
 var CARDHEIGHT = 150;
@@ -17,6 +18,8 @@ var firstCard;
 var gameOver = false;
 var staffCount = 0;
 var startTime = 0;
+var gameStarted = true;
+var totalSeconds = 0;
 
 //+++++++++++++++++++++++++++++++++++++++++++++
 // Class definition for game card
@@ -77,8 +80,10 @@ function setGameBoard() {
     gameBoard.push(deck[i]);
     if (deck[i].isStaff) {staffCount++;}
   }
-  window.setTimeout(flipCard, 1000);
+  // get name from LocalStorage
+  window.setTimeout(flipCard, 2000);
   startTime = new Date();
+  showClock();
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++
@@ -94,8 +99,11 @@ function logClick() {
     staffCount--;
     if (staffCount === 0) {
       alert('CONGRATULATIONS, YOU GIT SUCCESS!');
+      // location.assign('score.html');
       gameOver = true;
       reportTime();
+      totalSeconds = 0;
+      // write score to localstorage
     }
   } else {
     element.style.backgroundPosition = gameBoard[index].position;
@@ -104,8 +112,9 @@ function logClick() {
     for (var i = 0; i < GAMEBOARDAREA; i++) {
       document.getElementById('img' + (i + 1)).style.backgroundPosition = gameBoard[i].position;
     };
+    localStorage.setItem('score', (JSON.stringify(Math.round(-1))));
     gameOver = true;
-    reportTime();
+    totalSeconds = 0;
   }
 }
 
@@ -115,6 +124,7 @@ function logClick() {
 function reportTime() {
   var endTime = new Date();
   var elapsedTimeMs = (endTime - startTime) / 1000;
+  localStorage.setItem('score', (JSON.stringify(Math.round(elapsedTimeMs))));
   alert('You took ' + Math.round(elapsedTimeMs) + ' seconds.');
 }
 
@@ -136,10 +146,37 @@ function flipCard() {
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++
+// function for showing timer on game screen
+//+++++++++++++++++++++++++++++++++++++++++++++
+function showClock() {
+  if (!gameOver) {
+    ++totalSeconds;
+    m = checkTime(parseInt(totalSeconds / 60));
+    s = checkTime(totalSeconds % 60);
+    document.getElementById('gametimer').innerHTML =
+    m + ':' + s;
+    var t = setTimeout(showClock, 1000);
+  }
+  else {
+    totalSeconds = 0;
+    document.getElementById('gametimer').innerHTML = '00:00';
+  }
+}
+
+function checkTime(i) {
+  if (i < 10) {
+    i = '0' + i;
+  } // add zero in front of numbers < 10
+  return i;
+}
+
+//+++++++++++++++++++++++++++++++++++++++++++++
 // event handler for start button
 //+++++++++++++++++++++++++++++++++++++++++++++
 function startGame() {
   gameOver = false;
+  gameStarted = true;
+
   if (!gameOver) {
     gameBoard = [];
     shuffleDeck();
