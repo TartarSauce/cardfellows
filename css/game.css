@@ -1,3 +1,4 @@
+/*Corey Top*/
 body {
   /*background-color: #8F6AB2;*/
   background-color: black;
@@ -187,3 +188,5 @@ nav, .logoutgame {
   height: 150px; /* Icon height */
   display: inline-block; /* Display icon as inline block */
 }
+
+/*Corey Bottom*/
