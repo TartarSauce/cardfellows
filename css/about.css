@@ -1,106 +1,175 @@
+*{
+  /*border:1px solid silver;*/
+}
 
 body {
-  background-color: #8F6AB2;
-  margin-top: 20px;
-  border-spacing: : : 50px 250px 50px 250px;
+  background-color: black;
+  /*margin-top: 20px;*/
+  border-spacing: : : 50px 50px 50px 50px;
+  line-height: 200%;
+  font-size: 14px;
+
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-family: "Press Start 2P";
+  border-radius: 1px;
+}
+
+a:visited {
+  color: #F6F422;
+}
+
+a {
+  text-decoration: none;
+  color:#F6F422;
 }
 
 h1 {
-  background-color: #8F6AB2;
+
   color:yellow;
-  font-family: 'Teko', sans-serif;
+  font-family: "Press Start 2P";
 
 }
 
 h2 {
-  background-color: #8F6AB2;
+
   color:yellow;
-  font-family: ;
+  font-family: "Press Start 2P";
 }
+
+.team-images {
+  /*border: 1px solid black;*/
+  box-shadow: 5px 8px 5px #555555;
+}
+
 .about-us-heading {
-  background-color: ;
-  color: ;
+  display: flex;
+  justify-content: center;
+}
+
+.person-description {
+  background-color: black;
+  box-shadow: 5px 8px 5px #555555;
+  padding: 10px;
+  width: 90%;
 }
 
 .container-uma {
-  font-family: 'Quattrocento', serif;
-  background: #273F4A no-repeat;
+  background:
   background-size: cover;
-  padding: 50px;
+  padding: 10px 50px 50px 50px;
+}
+
+.card-team {
+  background-color: #cccccc;
+  box-shadow: 5px 8px 5px #eeeeee;
+  padding: 20px;
+  border-radius: 5px;
+
+}
+
+.card-staff {
+  background-color: #cccccc;
+  box-shadow: 5px 8px 5px #eeeeee;
+  padding: 20px;
+  border-radius: 5px;
+  width: 90%;
+  margin: 0px auto;
+
 }
 
 .header-uma {
   display: flex;
-  justify-content: center;
-  padding-left: 30%;
-
+  justify-content: flex-start;
+  padding: 10px;
 }
 
 .first {
   background-color: ;
-  color: ;
   display: flex;
   justify-content: flex-end;
-  padding-left: 50%;
+  box-shadow: 5px 8px 5px #555555;
+
+
 }
 
 .uma-par {
   padding-right: 5%;
+  color: white;
+  font-family: "Press Start 2P";
+}
 
+.container-jennifer {
+  background:
+  background-size: cover;
+  padding: 50px;
 }
 
 .header-jennifer {
   display: flex;
-  justify-content: center;
-  padding-right: 30%;
+  justify-content: flex-end;
+  /*padding-right: 10%;*/
 }
 
 .second {
   background-color: ;
-  color:  ;
   display: flex;
-  justify-content: flex-start;
-  padding-right: 50%;
+  justify-content: flex-end;
+  box-shadow: 5px 8px 5px #555555;
 }
 
 .jennifer-par {
   padding-left: 5%;
+  color: white;
+  font-family: "Press Start 2P";
+}
+
+.container-corey {
+  background:
+  background-size: cover;
+  padding: 50px;
 }
 
 .header-corey {
   display: flex;
-  justify-content: center;
-  padding-left: 30%;
+  justify-content: flex-start;
+  /*padding-left: 30%;*/
 }
 
 .third {
   background-color: ;
-  color: ;
   display: flex;
   justify-content: flex-end;
-  padding-left: 50%;
+  box-shadow: 5px 8px 5px #555555;
 }
 
 .corey-par {
   padding-right: 5%;
+  color: white;
+  font-family: "Press Start 2P";
 }
 
 .header-bob {
   display: flex;
-  justify-content: center;
-  padding-right: 30%;
+  justify-content: flex-end;
+  /*padding-right: 10%;*/
 }
 
 .fourth {
   background-color: ;
-  color: ;
   display: flex;
-  justify-content: flex-start;
-  padding-right:50%;
+  justify-content: flex-end;
+  box-shadow: 5px 8px 5px #555555;
 }
 
 .bob-par {
   padding-left: 5%;
+  color: white;
+  font-family: "Press Start 2P";
 }
 
 .header-thanks {
@@ -109,11 +178,189 @@ h2 {
 }
 
 .special-thanks {
-  background-color: ;
-  color: ;
+  background-color: black;
+  color: white;
+  font-family: "Press Start 2P";
+  padding: 10px;
+  box-shadow: 5px 8px 5px #555555;
 }
 
 .image-center {
   display: flex;
   justify-content: center;
+  background-color: #cccccc;
+  box-shadow: 5px 8px 5px #555555;
+  padding: 20px;
+  border-radius: 5px;
 }
+
+/*body {
+  margin: 0;
+}
+
+.intro {
+  background: url(imgs/munir.jpg) no-repeat center center fixed;
+  display: flex;
+  background-size: cover;
+  padding: 50px 0 100px;
+  overflow: hidden;
+  height: 500px;
+  color: #0F22A3;
+  font-weight: bold;
+  font-family: 'Roboto Slab', serif;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown {
+    position: fixed;
+    right: 50px;
+    top: 20px;
+    text-align: right;
+    font-family: 'Oswald', sans-serif;
+}
+
+.drop-down-icon {
+  right: 0px;
+  height: 40px;
+  width: 40px;
+  border: 1px solid;
+  background: white;
+  border-radius: 10px;
+}
+
+.dropdown ul {
+  display: none;
+  margin: 0;
+list-style: none;
+}
+
+.dropdown:hover ul {
+display: list-item;
+}
+
+.dropdown:hover .drop-down-icon {
+  background-color: #ABA9A7;
+}
+
+.dropdown li {
+  background-color: white;
+  text-align: center;
+  padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown li:hover {
+  background-color: #ABA9A7;
+}
+
+.about-us-heading {
+  border-top: solid 10px;
+  border-bottom: solid 10px;
+  font-size: 75px;
+  margin-left: 50px;
+  margin-right: 10px;
+}
+
+.about-us-description {
+  width: 750px;
+  margin-left: 10px;
+  margin-right: 50px;
+}
+
+.image {
+  width: 400px;
+  height: 400px;
+}
+
+.image-right {
+    width: 400px;
+    height: 400px;
+    margin-left: 100px;
+}
+
+.image-left {
+    width: 400px;
+    height: 400px;
+    margin-right: 100px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.first {
+  font-family: 'Quattrocento', serif;
+  background: #273F4A no-repeat;
+  background-size: cover;
+  padding: 50px;
+}
+
+.first h1 {
+  color: #D16F19;
+  font-size: 40px;
+}
+
+.first p {
+  color: white;
+}
+
+.second {
+  background: url('Img/scissor.jpg') no-repeat center center fixed;
+  color: white;
+  background-size: cover;
+  padding: 50px 0 100px;
+  overflow: hidden;
+  padding: 50px;
+  font-family: 'Jura', sans-serif;
+}
+
+.second h1 {
+  text-align: right;
+  font-size: 50px;
+}
+
+.third {
+  font-family: 'Muli', sans-serif;
+  background: #DBDAE0 no-repeat;
+  background-size: cover;
+  padding: 50px;
+  padding: 50px;
+}
+
+.third h1 {
+  font-size: 50px;
+    color: #8F1313;
+}
+
+.third p {
+  color: #68676B;
+}
+
+.fourth {
+  background: url('Img/levitating-rock.jpg') center center fixed;
+  background-size: cover;
+  padding: 50px 0 100px;
+  overflow: hidden;
+  color: white;
+  padding: 50px;
+  font-weight: bold;
+  font-family: 'Jura', sans-serif;
+
+}
+
+.fourth h1 {
+  font-size: 50px;
+}
+.fourth p {
+  font-size: 20px;
+}
+
+p {
+  margin-top: 0;
+}*/
