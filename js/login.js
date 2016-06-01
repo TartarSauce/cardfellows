@@ -82,11 +82,13 @@ function handlePlayerLogin(event) {
   var newPlayer = new Player(hName, hScore);
   console.log(allPlayer);
   outputTable();
+  localStorage.setItem('name', JSON.stringify(hName));
   localStorage.setItem('allData', JSON.stringify(rankPlayer));
 
   event.target.username.value = null;
   event.target.userscore.value = null;
   console.log('You just cleared all the fields!');
+  location.assign('game.html');
 }
 
 loginForm.addEventListener('submit', handlePlayerLogin);
