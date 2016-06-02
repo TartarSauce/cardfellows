@@ -8,8 +8,11 @@ a {
 }
 
 a:visited {
-  color: inherit;
   color: #F6F422;
+}
+
+a:hover {
+  cursor: pointer;
 }
 
 nav, .logoutgame {
