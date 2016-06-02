@@ -26,6 +26,23 @@ a:visited {
 
 }
 
+a:hover {
+  animation: pulse .75s infinite;
+  text-shadow: 0 4px 0 rgba(255, 255, 255, 0.4);
+}
+
+@keyframes pulse {
+  0% {
+    color: #F6F422;
+  }
+  50% {
+    color: #C5B358;
+  }
+  100% {
+    color: #F6F422;
+  }
+}
+
 a {
   text-decoration: none;
   color:#F6F422;
@@ -33,14 +50,17 @@ a {
 
 h1 {
 
-  color:yellow;
+  color: #F6F422;
   font-family: "Press Start 2P";
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
 
 }
 
 h2 {
-
-  color:yellow;
+  /*font-weight: bold;*/
+  color: blue;
   font-family: "Press Start 2P";
 }
 
@@ -60,10 +80,27 @@ h2 {
   width: 90%;
 }
 
+.person-description span {
+    -webkit-animation: pulsate 2s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 0.5;
+}
+
+@-webkit-keyframes pulsate {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1.0;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
 .container-uma {
-  background:
   background-size: cover;
-  padding: 10px 50px 50px 50px;
+  padding: 50px;
 }
 
 .card-team {
@@ -179,6 +216,10 @@ h2 {
   justify-content: center;
 }
 
+.special-thanks h2 {
+  color: #F6F422;
+}
+
 .special-thanks {
   background-color: black;
   color: white;
@@ -194,4 +235,11 @@ h2 {
   box-shadow: 5px 8px 5px #555555;
   padding: 20px;
   border-radius: 5px;
+  margin-top: 20px;
+}
+
+.image {
+  width: 20%;
+  height: auto;
+
 }
