@@ -1,6 +1,4 @@
-/*Corey Top*/
 body {
-  /*background-color: #8F6AB2;*/
   background-color: black;
 }
 
@@ -35,7 +33,6 @@ nav, .logoutgame {
   width:80%;
   display: flex;
   justify-content:space-around;
-  /*font-family: 'Press Start 2P';*/
   align-items: center;
   margin:0px auto;
   padding:10px;

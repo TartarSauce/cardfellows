@@ -1,4 +1,7 @@
 
+//+++++++++++++++++++++++++++++++++++++++++++++
+// all global variables, including handles to DOM elements
+//+++++++++++++++++++++++++++++++++++++++++++++
 // handle to DOM elements
 var startButtonElement = document.getElementById('startgame');
 var gameTimerElement = document.getElementById('gametimer');
@@ -78,43 +81,45 @@ function setGameBoard() {
     if (deck[i].isStaff) {staffCount++;}
   }
 
+  // remove the html element that reports game over status
   if (document.getElementById('gameoveralert')) {
     var gameAreaEl = document.getElementById('gamearea');
     gameAreaEl.removeChild(document.getElementById('gameoveralert'));
   }
 
+  // show cards for 5 seconds before closing them
   window.setTimeout(flipCard, 5000);
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++
-// event handler for reading user clicks during game
+// handle user clicks during game
 //+++++++++++++++++++++++++++++++++++++++++++++
-function logClick() {
+function handleClick() {
   console.log(event);
   var index = event.target.alt;
   var element = document.getElementById(event.target.id);
   if (gameBoard[index].isStaff) {
     element.style.backgroundPosition = gameBoard[index].position;
-    element.removeEventListener('click', logClick);
+    element.removeEventListener('click', handleClick);
     staffCount--;
     if (staffCount === 0) {
-      gameOver = true;
-      gameOverAlert('green');
+      gameOverAlert('SUCCESS!', 'green');
       for (var i = 0; i < GAMEBOARDAREA; i++) {
-        document.getElementById('img' + (i + 1)).removeEventListener('click', logClick);
+        document.getElementById('img' + (i + 1)).removeEventListener('click', handleClick);
       };
       reportTime();
+      gameOver = true;
       totalSeconds = 0;
       startButtonElement.innerHTML = 'START GAME';
       startButtonElement.addEventListener('click', startGame);
     }
   } else {
     element.style.backgroundPosition = gameBoard[index].position;
-    element.removeEventListener('click', logClick);
-    gameOverAlert('red');
+    element.removeEventListener('click', handleClick);
+    gameOverAlert('WRONG CARD!', 'red');
     for (var i = 0; i < GAMEBOARDAREA; i++) {
       document.getElementById('img' + (i + 1)).style.backgroundPosition = gameBoard[i].position;
-      document.getElementById('img' + (i + 1)).removeEventListener('click', logClick);
+      document.getElementById('img' + (i + 1)).removeEventListener('click', handleClick);
     };
     localStorage.setItem('score', (JSON.stringify(Math.round(-1))));
     gameOver = true;
@@ -127,25 +132,19 @@ function logClick() {
 //+++++++++++++++++++++++++++++++++++++++++++++
 // create a new div to report game complete status
 // green = success, red = fail
+// styling of this div is already in css for #gameoveralert
 //+++++++++++++++++++++++++++++++++++++++++++++
-function gameOverAlert(color) {
+function gameOverAlert(string, color) {
   var alertDiv = document.createElement('div');
   alertDiv.id = 'gameoveralert';
-  alertDiv.style.display = 'inline-block';
-  alertDiv.style.padding = '10px';
-  alertDiv.style.backgroundColor = 'white';
-  alertDiv.style.fontFamily = 'Press Start 2P';
-  alertDiv.style.fontSize = '16px';
-  alertDiv.style.backgroundColor = 'white';
   alertDiv.style.color = color;
-  console.log(alertDiv);
   var gameAreaEl = document.getElementById('gamearea');
   gameAreaEl.appendChild(alertDiv);
-  alertDiv.innerHTML = 'GAME OVER';
+  alertDiv.innerHTML = string;
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++
-// update time to local storage if game sucessful
+// update time to local storage ONLY IF game sucessful
 //+++++++++++++++++++++++++++++++++++++++++++++
 function reportTime() {
   var endTime = new Date();
@@ -154,21 +153,21 @@ function reportTime() {
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++
-// flip cards after showing them for a brief instant
+// flip cards after showing them for 5 seconds
 //+++++++++++++++++++++++++++++++++++++++++++++
 function flipCard() {
   if (allCardsFaceUp) {
     for (var i = 0; i < GAMEBOARDAREA; i++) {
       var el = document.getElementById('img' + (i + 1));
       el.style.backgroundPosition = '0px 0px';
-      el.addEventListener('click', logClick);
+      el.addEventListener('click', handleClick);
     }
     allCardsFaceUp = false;
   } else if (!allCardsFaceUp){
     for (var i = 0; i < GAMEBOARDAREA; i++) {
       var el = document.getElementById('img' + (i + 1));
       el.style.backgroundPosition = gameBoard[i].position;
-      el.removeEventListener('click', logClick);
+      el.removeEventListener('click', handleClick);
     };
     allCardsFaceUp = true;
   }
@@ -192,6 +191,11 @@ function showClock() {
     totalSeconds = 0;
     document.getElementById('gametimer').innerHTML = '00:00';
   }
+
+  // reset game if exceeded 3 minutes/180 seconds
+  if (totalSeconds > 180) {
+    gameTimedOut();
+  }
 }
 
 // helper function for formatting time
@@ -200,6 +204,22 @@ function checkTime(i) {
     i = '0' + i;
   } // add zero in front of numbers < 10
   return i;
+}
+
+//+++++++++++++++++++++++++++++++++++++++++++++
+// terminate game if exceeding 3 seconds
+//+++++++++++++++++++++++++++++++++++++++++++++
+function gameTimedOut() {
+  gameOverAlert('GAME TIMED OUT', 'red');
+  for (var i = 0; i < GAMEBOARDAREA; i++) {
+    document.getElementById('img' + (i + 1)).style.backgroundPosition = gameBoard[i].position;
+    document.getElementById('img' + (i + 1)).removeEventListener('click', handleClick);
+  };
+  localStorage.setItem('score', (JSON.stringify(Math.round(-1))));
+  gameOver = true;
+  totalSeconds = 0;
+  startButtonElement.innerHTML = 'START GAME';
+  startButtonElement.addEventListener('click', startGame);
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++
