@@ -4,6 +4,10 @@ var rankPlayer = [];
 var highScoreTable = document.getElementById('high-scores');
 var logOutButtonElement = document.getElementById('logoutgame');
 
+var sample1 = new Player('Bob', 7);
+var sample2 = new Player('AAA', 8);
+var sample3 = new Player('BBB', 9);
+
 function Player(name, time){
   this.name = name;
   this.score = time;
@@ -62,12 +66,11 @@ function logOutGame() {
 }
 
 function outputTable() {
-  // highScoreTable.innerHTML = '';
+  highScoreTable.innerHTML = '';
   rankingOrder();
   headerRow();
   renderTable();
 }
-
 logOutButtonElement.addEventListener('click', logOutGame);
 
 (function(){
@@ -96,5 +99,7 @@ logOutButtonElement.addEventListener('click', logOutGame);
       outputTable();
     }
     localStorage.setItem('allData', JSON.stringify(rankPlayer));
+  } else {
+    outputTable();
   }
 })();
