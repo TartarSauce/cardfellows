@@ -4,10 +4,12 @@ body {
 
 a {
   text-decoration: none;
+  color: #F6F422;
 }
 
 a:visited {
   color: inherit;
+  color: #F6F422;
 }
 
 nav, .logoutgame {
@@ -64,20 +66,22 @@ nav, .logoutgame {
   padding:10px;
 }
 
+/* rows that hold the game images */
 .row1, .row2, .row3 {
   display: flex;
   justify-content:center;
   align-items: center;
 }
 
+/* this is the main CSS sprite png */
 .gameboard {
-  /*background: url("spritesheet.png");*/
   background: url("../imgs/sprites.png");
   display: inline-block;
   height: 750px;
   width:900px;
 }
 
+/* Need to define each img CSS individually since using CSS sprites */
 .img1 {
   width: 150px; /* Icon width */
   height: 150px; /* Icon height */
@@ -185,5 +189,3 @@ nav, .logoutgame {
   height: 150px; /* Icon height */
   display: inline-block; /* Display icon as inline block */
 }
-
-/*Corey Bottom*/
