@@ -4,8 +4,8 @@ pressStart.addEventListener('click', checkActiveUser);
 function checkActiveUser() {
   var activeUser = JSON.parse(localStorage.getItem('activeUser'));
   if (activeUser){
-    window.location.assign('html/game.html');
+    window.location.assign('../html/game.html');
   } else {
-    window.location.assign('html/login.html');
+    window.location.assign('../index.html');
   }
 }
