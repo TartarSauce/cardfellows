@@ -19,17 +19,19 @@ a {
 
 a:visited {
   color: #F6F422;
+
 }
+
 .inputblock{
   width: 60%;
   margin: 0px auto;
-  /*box-shadow: 5px 8px 5px #eeeeee;*/
   background-color: #eeeeee;
   padding: 20px;
   margin-top: 50px;
   border-radius: 5px;
 }
-h4 {
+
+h4, h3 {
   font-size: 18px;
   text-align: center;
   width:inherit;
@@ -38,11 +40,15 @@ h4 {
   padding: 10px 0px 10px 0px;
   text-align: center;
   margin: 0px auto;
+
+}
+
+h3 {
+  padding: 50px 0px 10px 0px;
 }
 
 form {
   width: inherit;
-  border-top:-10px;
   background-color: #eeeeee;
   border: 1px solid #EEEEEE;
   margin: 0px auto;
@@ -65,7 +71,7 @@ form {
 .formlists input {
   width: 60%;
   border:1px solid #999999;
-  padding:5px;
+  padding: 10px 10px 10px 10px;
 
 }
 

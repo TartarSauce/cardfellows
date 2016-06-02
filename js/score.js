@@ -2,6 +2,7 @@
 var allPlayer = [];
 var rankPlayer = [];
 var highScoreTable = document.getElementById('high-scores');
+var logOutButtonElement = document.getElementById('logoutgame');
 
 function Player(name, time){
   this.name = name;
@@ -54,12 +55,21 @@ function renderTable() {
   }
 }
 
+function logOutGame() {
+  console.log('Logging user out');
+  var activeUser = false;
+  localStorage.setItem('activeUser', JSON.stringify(activeUser));
+  location.assign('../index.html');
+}
+
 function outputTable() {
   // highScoreTable.innerHTML = '';
   rankingOrder();
   headerRow();
   renderTable();
 }
+
+logOutButtonElement.addEventListener('click', logOutGame);
 
 (function(){
   if(localStorage.score) {

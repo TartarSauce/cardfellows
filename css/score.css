@@ -15,6 +15,10 @@ nav {
   border-radius: 1px;
 }
 
+nav, .logoutgame {
+ cursor: pointer;
+}
+
 a {
   text-decoration: none;
   color: #F6F422;
