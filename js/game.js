@@ -20,7 +20,6 @@ var firstCard;
 var gameOver = false;
 var staffCount = 0;
 var startTime = 0;
-var gameStarted = true;
 var totalSeconds = 0;
 
 //+++++++++++++++++++++++++++++++++++++++++++++
@@ -42,7 +41,6 @@ function createDeck() {
       var yPos = y * -CARDHEIGHT;
       var xPos = x * -CARDWIDTH;
       var positionString = xPos + 'px ' + yPos + 'px';
-      //coordinateArray.push(positionString);
       var card = new Card(positionString);
       if ((card.position === '-150px 0px') || (card.position === '-300px 0px') ||
           (card.position === '-450px 0px') || (card.position === '-600px 0px') ||
@@ -52,9 +50,7 @@ function createDeck() {
       }
     }
   }
-  firstCard = deck.shift();   // discard first card
-  // console.log(firstCard);
-  // console.log(deck.length);
+  firstCard = deck.shift();   // discard first card, its the back card
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++
@@ -78,7 +74,6 @@ function setGameBoard() {
     var el = document.getElementById('img' + (i + 1));
     el.style.backgroundPosition = deck[i].position;
     el.alt = i;
-    el.addEventListener('click', logClick);
     gameBoard.push(deck[i]);
     if (deck[i].isStaff) {staffCount++;}
   }
@@ -87,10 +82,8 @@ function setGameBoard() {
     var gameAreaEl = document.getElementById('gamearea');
     gameAreaEl.removeChild(document.getElementById('gameoveralert'));
   }
-  // get name from LocalStorage
+
   window.setTimeout(flipCard, 5000);
-  startTime = new Date();
-  showClock();
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++
@@ -106,25 +99,36 @@ function logClick() {
     staffCount--;
     if (staffCount === 0) {
       gameOver = true;
-      gameOverAlert();
+      gameOverAlert('green');
+      for (var i = 0; i < GAMEBOARDAREA; i++) {
+        document.getElementById('img' + (i + 1)).removeEventListener('click', logClick);
+      };
       reportTime();
       totalSeconds = 0;
-      // write score to localstorage
+      startButtonElement.innerHTML = 'START GAME';
+      startButtonElement.addEventListener('click', startGame);
     }
   } else {
     element.style.backgroundPosition = gameBoard[index].position;
     element.removeEventListener('click', logClick);
-    gameOverAlert();
+    gameOverAlert('red');
     for (var i = 0; i < GAMEBOARDAREA; i++) {
       document.getElementById('img' + (i + 1)).style.backgroundPosition = gameBoard[i].position;
+      document.getElementById('img' + (i + 1)).removeEventListener('click', logClick);
     };
     localStorage.setItem('score', (JSON.stringify(Math.round(-1))));
     gameOver = true;
     totalSeconds = 0;
+    startButtonElement.innerHTML = 'START GAME';
+    startButtonElement.addEventListener('click', startGame);
   }
 }
 
-function gameOverAlert() {
+//+++++++++++++++++++++++++++++++++++++++++++++
+// create a new div to report game complete status
+// green = success, red = fail
+//+++++++++++++++++++++++++++++++++++++++++++++
+function gameOverAlert(color) {
   var alertDiv = document.createElement('div');
   alertDiv.id = 'gameoveralert';
   alertDiv.style.display = 'inline-block';
@@ -133,7 +137,7 @@ function gameOverAlert() {
   alertDiv.style.fontFamily = 'Press Start 2P';
   alertDiv.style.fontSize = '16px';
   alertDiv.style.backgroundColor = 'white';
-  alertDiv.style.color = 'red';
+  alertDiv.style.color = color;
   console.log(alertDiv);
   var gameAreaEl = document.getElementById('gamearea');
   gameAreaEl.appendChild(alertDiv);
@@ -141,13 +145,12 @@ function gameOverAlert() {
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++
-// report time to user
+// update time to local storage if game sucessful
 //+++++++++++++++++++++++++++++++++++++++++++++
 function reportTime() {
   var endTime = new Date();
   var elapsedTimeMs = (endTime - startTime) / 1000;
   localStorage.setItem('score', (JSON.stringify(Math.round(elapsedTimeMs))));
-  alert('You took ' + Math.round(elapsedTimeMs) + ' seconds.');
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++
@@ -156,15 +159,22 @@ function reportTime() {
 function flipCard() {
   if (allCardsFaceUp) {
     for (var i = 0; i < GAMEBOARDAREA; i++) {
-      document.getElementById('img' + (i + 1)).style.backgroundPosition = '0px 0px';
+      var el = document.getElementById('img' + (i + 1));
+      el.style.backgroundPosition = '0px 0px';
+      el.addEventListener('click', logClick);
     }
     allCardsFaceUp = false;
   } else if (!allCardsFaceUp){
     for (var i = 0; i < GAMEBOARDAREA; i++) {
-      document.getElementById('img' + (i + 1)).style.backgroundPosition = gameBoard[i].position;
+      var el = document.getElementById('img' + (i + 1));
+      el.style.backgroundPosition = gameBoard[i].position;
+      el.removeEventListener('click', logClick);
     };
     allCardsFaceUp = true;
   }
+
+  startTime = new Date();
+  showClock();
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++
@@ -175,8 +185,7 @@ function showClock() {
     ++totalSeconds;
     m = checkTime(parseInt(totalSeconds / 60));
     s = checkTime(totalSeconds % 60);
-    document.getElementById('gametimer').innerHTML =
-    m + ':' + s;
+    document.getElementById('gametimer').innerHTML = m + ':' + s;
     var t = setTimeout(showClock, 1000);
   }
   else {
@@ -185,6 +194,7 @@ function showClock() {
   }
 }
 
+// helper function for formatting time
 function checkTime(i) {
   if (i < 10) {
     i = '0' + i;
@@ -197,7 +207,8 @@ function checkTime(i) {
 //+++++++++++++++++++++++++++++++++++++++++++++
 function startGame() {
   gameOver = false;
-  gameStarted = true;
+  startButtonElement.innerHTML = 'GOOD LUCK!';
+  startButtonElement.removeEventListener('click', startGame);
 
   if (!gameOver) {
     gameBoard = [];
@@ -214,6 +225,7 @@ function logOutGame() {
   console.log('Logging user out');
   var activeUser = false;
   localStorage.setItem('activeUser', JSON.stringify(activeUser));
+  window.location.assign('../index.html');
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++
