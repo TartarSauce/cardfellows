@@ -1,11 +1,25 @@
+@keyframes pulse {
+  0% {
+    color: #F6F422;
+  }
+  50% {
+    color: #C5B358;
+  }
+  100% {
+    color: #F6F422;
+  }
+}
+
 body {
-  background-color: black;
+  background-image: url("../imgs/Stars.jpg");
+  /*background-color: black;*/
   font-family: 'Press Start 2P', cursive;
 
 }
 h1 {
   color: #F6F422;
-  text-align: center;;
+  text-align: center;
+  padding: 25px 0px 15px 0px;
 }
 nav {
   display: flex;
@@ -13,6 +27,7 @@ nav {
   color: #F6F422;
   font-family: 'Press Start 2P';
   border-radius: 1px;
+  cursor: pointer;
 }
 
 a {
@@ -24,10 +39,27 @@ a:visited {
   color: inherit;
 }
 
+a:hover {
+  animation: pulse .75s infinite;
+  text-shadow: 0 4px 0 rgba(255, 255, 255, 0.4);
+}
+
 table {
     border-collapse: collapse;
     width: 50%;
     margin: 0px auto;
+}
+
+tr:nth-child(even){
+  background-color: white;
+}
+
+tr:nth-child(odd){
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
 }
 
 td, th  {
@@ -38,11 +70,8 @@ td, th  {
 
 }
 
-td {
-  background-color: #eeeeee;
-}
 th {
     padding-top: 12px;
     padding-bottom: 12px;
-    background-color: #8F6AB2;
+    background-color: blue;
 }

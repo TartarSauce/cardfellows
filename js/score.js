@@ -2,11 +2,11 @@
 var allPlayer = [];
 var rankPlayer = [];
 var highScoreTable = document.getElementById('high-scores');
+var logOutButtonElement = document.getElementById('logoutgame');
 
 function Player(name, time){
   this.name = name;
   this.score = time;
-  // this.ranking = 0;
   allPlayer.push(this);
   console.log(this);
 };
@@ -29,7 +29,7 @@ function headerRow() {
   trElement.appendChild(nameCell);
   //Score
   var scoreCell = document.createElement('th');
-  scoreCell.textContent = 'Score';
+  scoreCell.textContent = 'Time(s)';
   trElement.appendChild(scoreCell);
 
   highScoreTable.appendChild(trElement);
@@ -54,6 +54,13 @@ function renderTable() {
   }
 }
 
+function logOutGame() {
+  console.log('Logging user out');
+  var activeUser = false;
+  localStorage.setItem('activeUser', JSON.stringify(activeUser));
+  location.assign('../index.html');
+}
+
 function outputTable() {
   // highScoreTable.innerHTML = '';
   rankingOrder();
@@ -61,10 +68,12 @@ function outputTable() {
   renderTable();
 }
 
+logOutButtonElement.addEventListener('click', logOutGame);
+
 (function(){
   if(localStorage.score) {
     var userName = JSON.parse(localStorage.getItem('name'));
-    var newScore = JSON.parse(localStorage.getItem('score'));
+    var newScore = parseInt(JSON.parse(localStorage.getItem('score')));
     var lsData = JSON.parse(localStorage.getItem('allData'));
     var returnUser = false;
     for (var i = 0; i < lsData.length; i++) {
@@ -72,7 +81,7 @@ function outputTable() {
       if (userName === allPlayer[i].name){
         var oldScore = allPlayer[i].score;
         returnUser = true;
-        if (newScore < oldScore){
+        if ((newScore > 0) && (newScore < oldScore)){
           allPlayer[i].score = newScore;
         }
         console.log( userName + ', Welcome Back! yours highest score = ' + allPlayer[i].score);
@@ -80,7 +89,7 @@ function outputTable() {
     }
     console.log('userName = ' + userName + '; newScore = ' + newScore);
     console.log(allPlayer);
-    if (newScore === '-1' || returnUser) {
+    if ((newScore === -1) || (returnUser)) {
       outputTable();
     } else {
       var newPlayer = new Player(userName, newScore);

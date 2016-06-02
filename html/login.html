@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--Corey Top-->
 <html>
   <head>
     <title>CardFellows Login</title>
@@ -12,26 +11,18 @@
   </nav>
   <body>
     <div class="inputblock">
-      <h4>Please type your user name</h4>
+      <h4>Enter Your Name</h4>
       <form id="login">
         <ul class="formlists">
-          <li>
-            <input class="username" name="username" type="text" placeholder="Name"/>
-          </li>
-          <li>
-            <input name="userscore" type="text" placeholder="Score"/>
-          </li>
-          <li>
-            <button id="to-game" type ="submit">ENTER</button>
-          </li>
+          <li><input name="username" type="text" placeholder="Name" maxlength="20" required/></li>
+          <li><button id="to-game" type ="submit">PLAY</button></li>
         </ul>
       </form>
     </div>
 
-    <h1>High Score</h1>
+    <h3>Top 3 High Score Players</h3>
     <table id="score-table"></table>
 
     <script src="..\js\login.js"></script>
   </body>
 </html>
-<!--Corey Bottom-->
