@@ -7,7 +7,6 @@ var logOutButtonElement = document.getElementById('logoutgame');
 function Player(name, time){
   this.name = name;
   this.score = time;
-  // this.ranking = 0;
   allPlayer.push(this);
   console.log(this);
 };
@@ -30,7 +29,7 @@ function headerRow() {
   trElement.appendChild(nameCell);
   //Score
   var scoreCell = document.createElement('th');
-  scoreCell.textContent = 'Score';
+  scoreCell.textContent = 'Time(second)';
   trElement.appendChild(scoreCell);
 
   highScoreTable.appendChild(trElement);
@@ -82,7 +81,7 @@ logOutButtonElement.addEventListener('click', logOutGame);
       if (userName === allPlayer[i].name){
         var oldScore = allPlayer[i].score;
         returnUser = true;
-        if (newScore < oldScore){
+        if (newScore < oldScore && newScore > 0){
           allPlayer[i].score = newScore;
         }
         console.log( userName + ', Welcome Back! yours highest score = ' + allPlayer[i].score);
