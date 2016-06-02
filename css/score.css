@@ -1,3 +1,15 @@
+@keyframes pulse {
+  0% {
+    color: #F6F422;
+  }
+  50% {
+    color: #C5B358;
+  }
+  100% {
+    color: #F6F422;
+  }
+}
+
 body {
   background-image: url("../imgs/Stars.jpg");
   /*background-color: black;*/
@@ -25,6 +37,11 @@ a {
 
 a:visited {
   color: inherit;
+}
+
+a:hover {
+  animation: pulse .75s infinite;
+  text-shadow: 0 4px 0 rgba(255, 255, 255, 0.4);
 }
 
 table {

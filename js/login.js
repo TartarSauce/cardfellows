@@ -11,9 +11,9 @@ function Player(name, time){
   console.log(this);
 };
 
-var sample1 = new Player('Bob', 3);
-var sample2 = new Player('AAA', 5);
-var sample3 = new Player('BBB', 8);
+var sample1 = new Player('Bob', 7);
+var sample2 = new Player('AAA', 8);
+var sample3 = new Player('BBB', 9);
 //compare score and push to rankPlayer
 function rankingOrder() {
   rankPlayer = allPlayer.sort(function(a,b) {return (a.score > b.score) ? 1 : ((b.score > a.score) ? -1 : 0);} );
@@ -32,7 +32,7 @@ function headerRow() {
   trElement.appendChild(nameCell);
   //Score
   var scoreCell = document.createElement('th');
-  scoreCell.textContent = 'Time';
+  scoreCell.textContent = 'Time(s)';
   trElement.appendChild(scoreCell);
 
   scoreTable.appendChild(trElement);
