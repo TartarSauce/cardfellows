@@ -73,6 +73,23 @@ nav, .logoutgame {
   align-items: center;
 }
 
+a:hover {
+  animation: pulse .75s infinite;
+  text-shadow: 0 4px 0 rgba(255, 255, 255, 0.4);
+}
+
+@keyframes pulse {
+  0% {
+    color: #F6F422;
+  }
+  50% {
+    color: #C5B358;
+  }
+  100% {
+    color: #F6F422;
+  }
+}
+
 /* this is the main CSS sprite png */
 .gameboard {
   background: url("../imgs/sprites.png");
