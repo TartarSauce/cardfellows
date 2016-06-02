@@ -68,10 +68,13 @@ form {
   font-size: 16px;
 }
 .formlists input {
+  font-family: 'Press Start 2P';
   font-size: 20px;
   width: 80%;
-  border:1px solid #999999;
+  border: 2px solid grey;
   padding: 10px 10px 10px 10px;
+  border-radius: 8px;
+  margin: 20px;
 }
 .formlists button {
   font-family: 'Press Start 2P';
@@ -84,6 +87,7 @@ form {
   border-radius: 90px;
   padding: 15px 20px 10px 25px;
   cursor: pointer;
+
 }
 .formlists button:hover {
   animation: pulse .75s infinite;
@@ -92,13 +96,6 @@ form {
   /*color: black;rgba(255, 255, 255, 0.4); #8F6AB2*/
 }
 
-input {
-  font-family: 'Press Start 2P';
-  padding: 10px 10px 10px 10px;
-  border: 2px solid grey;
-  border-radius: 8px;
-  margin: 20px;
-}
 table {
     border-collapse: collapse;
     width: 50%;
